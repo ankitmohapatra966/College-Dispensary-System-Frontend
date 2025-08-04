@@ -16,7 +16,7 @@ const AddModal = (props) => {
     setLoader(true)
     try {
       const response = await axios.post("https://api.cloudinary.com/v1_1/ankitmohapatra/image/upload", data);
-      const imageUrl = response.data.url;
+      const imageUrl = response.data.secure_url;
       setImage(imageUrl)
 
     } catch (err) {
@@ -42,7 +42,7 @@ const AddModal = (props) => {
             <div className="modal-add-btns">
                 <div className='cancel-modal-btn' onClick={()=>props.onClose()}>Cancel</div>
                 <label htmlFor="fileInput" className='cancel-modal-btn'>Upload</label>
-                <input id="fileInput" accept='image/' onChange={(e)=>{uploadImage(e)}} className='cancel-file' type="file" />
+                <input id="fileInput" accept='image/*' onChange={(e)=>{uploadImage(e)}} className='cancel-file' type="file" />
             </div>
              {
             loader && <Box sx={{ display: 'flex' }}>
