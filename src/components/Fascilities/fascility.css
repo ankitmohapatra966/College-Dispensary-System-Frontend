@@ -1,0 +1,25 @@
+.fascility-header{
+    font-size: 21px;
+    color: #255674;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.fascility-lists{
+    display: flex;
+    flex-direction: column;
+}
+
+.fascility-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.fascility-list-header{
+    font-weight: 600;
+    color: #255674;
+    font-size: 20px;
+}
+.fascility-list-value{
+    font-size: 18px;
+}
