@@ -13,7 +13,7 @@ const MedicineModal = (props) => {
         if (props.clickedMedicine) {
             setMedicine({ ...medicine, name: props.clickedMedicine.name, quantity: props.clickedMedicine.quantity, usage: props.clickedMedicine.usage })
         }
-    }, [])
+    }, [props.clickedMedicine])
 
     const updateValue = async () => {
         props.showLoader();
@@ -40,7 +40,8 @@ const MedicineModal = (props) => {
         }
         props.showLoader();
         await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/medicine/add`,medicine,{withCredentials:true}).then((response)=>{
-          window.location.reload();
+          // window.location.reload();
+          props.onSuccess && props.onSuccess(); 
         }).catch((err) => {
         toast.error(err?.response?.data?.error);
       })
